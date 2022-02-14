@@ -35,12 +35,25 @@
 
 </style>
 
-<form action="#" method="post">
+@if ($errors->any())
+
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+<form action="{{route('login')}}" method="post">
+    @csrf
     <h2>Login</h2>
 
     <p>
-        <label for="Email" class="floatLabel">Email</label>
-        <input id="Email" name="Email" type="text">
+        <label for="email" class="floatLabel">Email</label>
+        <input id="email" name="email" type="text">
+
     </p>
     <p>
         <label for="password" class="floatLabel">Password</label>

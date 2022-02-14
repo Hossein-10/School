@@ -24,14 +24,11 @@ class User extends Authenticatable
         'confirm_password',
     ];
 
-    public static function create(array $validated)
-    {
-
-    }
 
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
+        $this->attributes['confirm_password'] = bcrypt($value);
     }
 
     /**
@@ -41,6 +38,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
+        'confirm_password',
         'remember_token',
     ];
 

@@ -36,28 +36,28 @@
 </style>
 
 @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
 
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+@endif
 <form action="{{ route('register') }}" method="post">
     @csrf
 {{--    @method('PUT')--}}
 
     <h2>Sign Up</h2>
     <p>
-        <label for="Name" class="floatLabel">Name</label>
-        <input id="Name" name="Name" type="text">
+        <label for="name" class="floatLabel">Name</label>
+        <input id="name" name="name" type="text">
     </p>
 
     <p>
-        <label for="Email" class="floatLabel">Email</label>
-        <input id="Email" name="Email" type="text">
+        <label for="email" class="floatLabel">Email</label>
+        <input id="email" name="email" type="text">
     </p>
     <p>
         <label for="password" class="floatLabel">Password</label>
