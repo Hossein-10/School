@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Authentication\LoginController;
+use App\Http\Controllers\Authentication\LogoutController;
 use App\Http\Controllers\Authentication\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,18 +21,17 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         return view('welcome');
     });
 
-    Route::get('/dashboard' , function (){
-        return view('dashboard.dashboard');
-    });
-    Route::get('/home' , function (){
-        return view('home');
-    });
+    Route::get('/dashboard' , function (){return view('dashboard.dashboard');});
+
+    Route::get('/home' , function (){return view('home');});
 
     Route::get('/register', [RegisterController::class, 'Show']);
     Route::post('/register', [RegisterController::class, 'Register'])->name('register');
 
     Route::get('/login' , [LoginController::class, 'Show']);
     Route::post('/login' , [LoginController::class, 'Login'])->name('login');
+
+    Route::get('/logout' , [LogoutController::class, 'Logout']);
 
 });
 

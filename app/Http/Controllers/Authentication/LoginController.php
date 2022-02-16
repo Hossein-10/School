@@ -22,9 +22,10 @@ class LoginController extends Controller
         ]);
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('home')->withSuccess('Signed in');
+            $request->session()->regenerate();
+            return redirect()->intended('home');
         }
-        return redirect("login")->withSuccess('Login details are not valid');
+        return back()->withErrors('Login details are not valid');
     }
 }
 

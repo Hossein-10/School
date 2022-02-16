@@ -6,7 +6,7 @@
         overflow: hidden;
     }
 
-    .auth
+    .login
     {
         float: right !important;
         padding-right: 10px !important;
@@ -73,62 +73,11 @@
         text-align: left;
     }
 
-    /* Add a dark background on topnav links and the dropdown button on hover */
-    /*.topnav a:hover, .dropdown:hover .dropbtn {*/
-    /*    background-color: #555;*/
-    /*    color: white;*/
-    /*}*/
-
-    /* Add a grey background to dropdown links on hover */
-    /*.dropdown-content a:hover {*/
-    /*    background-color: #282d32;*/
-    /*    color: white;*/
-    /*}*/
-
-    /*!* Show the dropdown menu when the user moves the mouse over the dropdown button *!*/
-    /*.dropdown:hover .dropdown-content {*/
-    /*    display: block;*/
-    /*}*/
-
-    /*!* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) *!*/
-    /*@media screen and (max-width: 600px) {*/
-    /*    .topnav a:not(:first-child), .dropdown .dropbtn {*/
-    /*        display: none;*/
-    /*    }*/
-    /*    .topnav a.icon {*/
-    /*        float: right;*/
-    /*        display: block;*/
-    /*    }*/
-    /*}*/
-
-    /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-    /*@media screen and (max-width: 600px) {*/
-    /*    .topnav.responsive {position: relative;}*/
-    /*    .topnav.responsive a.icon {*/
-    /*        position: absolute;*/
-    /*        right: 0;*/
-    /*        top: 0;*/
-    /*    }*/
-    /*    .topnav.responsive a {*/
-    /*        float: none;*/
-    /*        display: block;*/
-    /*        text-align: left;*/
-    /*    }*/
-    /*    .topnav.responsive .dropdown {float: none;}*/
-    /*    .topnav.responsive .dropdown-content {position: relative;}*/
-    /*    .topnav.responsive .dropdown .dropbtn {*/
-    /*        display: block;*/
-    /*        width: 100%;*/
-    /*        text-align: left;*/
-    /*    }*/
-
-    /*}*/
-
 </style>
 
 <div class="topnav" id="myTopnav">
-    <a style="color: white; padding-right: 160px;">MEHRGAN HIGHT SCHOOL</a>
-    <a href="" class="active">Home</a>
+    <a style="color: white; padding-right: 160px;">MEHRGAN HIGH SCHOOL</a>
+    <a href="/home" class="active">Home</a>
     <a href="#news">News</a>
     <a href="#contact">Contact</a>
     <div class="dropdown">
@@ -142,8 +91,16 @@
         </div>
     </div>
     <a href="#about">About</a>
-    <a class="auth" href="/login">Login</a>
-    <a class="auth" href="/register">Sign up</a>
+    @if(Route::has('login'))
+        @auth
+            <a class="" href="/logout">Logout</a>
+        @else
+            <a class="login" href='login'>Login</a>
+            @if(Route::has('register'))
+                <a class="login" href='/register'>Sign up</a>
+            @endif
+        @endauth
+    @endif
     <div class="dropdown" style="float: right !important;">
         <button class="dropbtn">Info
             <i class="fa fa-caret-down"></i>
@@ -154,9 +111,6 @@
             <a href="#">Link 3</a>
         </div>
     </div>
-{{--    <label class="auth" title="search"  >--}}
-{{--        <input type="text" name="search" style="margin-top: 12px;  ">--}}
-{{--    </label>--}}
 
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
