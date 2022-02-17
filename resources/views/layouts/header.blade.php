@@ -42,7 +42,7 @@
     }
 
     /* Style the dropdown button to fit inside the topnav */
-    .dropdown .dropbtn {
+    .dropdown   .dropbtn {
         font-size: 17px;
         border: none;
         outline: none;
@@ -76,7 +76,7 @@
 </style>
 
 <div class="topnav" id="myTopnav">
-    <a style="color: white; padding-right: 160px;">MEHRGAN HIGH SCHOOL</a>
+    <a style="color: white; padding-right: 160px; font-style: oblique">MEHRGAN HIGH SCHOOL</a>
     <a href="/home" class="active">Home</a>
     <a href="#news">News</a>
     <a href="#contact">Contact</a>
@@ -101,16 +101,7 @@
             @endif
         @endauth
     @endif
-    <div class="dropdown" style="float: right !important;">
-        <button class="dropbtn">Info
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-        </div>
-    </div>
 
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+
+{{--    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>--}}
 </div>

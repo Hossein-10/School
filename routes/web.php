@@ -3,6 +3,7 @@
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\LogoutController;
 use App\Http\Controllers\Authentication\RegisterController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,30 +18,18 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {
-    Route::get('/', function () {
-        return view('welcome');
-    });
-
-    Route::get('/dashboard' , function (){return view('dashboard.dashboard');});
-
+    Route::get('/', function () {return view('welcome');});
     Route::get('/home' , function (){return view('home');});
-
+    Route::get('/dashboard' , [DashboardController::class,'Show']);
+    Route::get('/admin-dashboard' , [DashboardController::class,'admin']);
     Route::get('/register', [RegisterController::class, 'Show']);
     Route::post('/register', [RegisterController::class, 'Register'])->name('register');
-
     Route::get('/login' , [LoginController::class, 'Show']);
     Route::post('/login' , [LoginController::class, 'Login'])->name('login');
-
     Route::get('/logout' , [LogoutController::class, 'Logout']);
-
 });
 
 
-//Route::get('/register' , '\App\Http\Controllers\Authentication\RegisterController@ShowRegister')->name('register.show');
-//Route::post('/register' , '\App\Http\Controllers\Authentication\RegisterController@StoreRegister')->name('register.perform');
 
-//Route::post('/register' , function (){
-//    return view('authentication.register');
-//});
 
 
