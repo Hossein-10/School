@@ -20,12 +20,16 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 {
     Route::get('/', function () {return view('welcome');});
     Route::get('/home' , function (){return view('home');});
+
     Route::get('/dashboard' , [DashboardController::class,'Show']);
     Route::get('/admin-dashboard' , [DashboardController::class,'admin']);
+
     Route::get('/register', [RegisterController::class, 'Show']);
     Route::post('/register', [RegisterController::class, 'Register'])->name('register');
+
     Route::get('/login' , [LoginController::class, 'Show']);
     Route::post('/login' , [LoginController::class, 'Login'])->name('login');
+
     Route::get('/logout' , [LogoutController::class, 'Logout']);
 });
 
